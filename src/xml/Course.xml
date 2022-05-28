@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Cources>
+                                                          
+<Cource id="1">
+    <Name>Java</Name>
+    <Teacher>Norbert</Teacher>
+    <Duration>50</Duration>
+</Cource>
+<Cource id="2">
+    <Name>Java Application</Name>
+    <Teacher>Norbert</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="3">
+    <Name>HTML</Name>
+    <Teacher>Laszlo</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="4">
+    <Name>JavaScript</Name>
+    <Teacher>Lazslo</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="5">
+    <Name>SQL</Name>
+    <Teacher>Istvan</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="6">
+    <Name>Bootstrap</Name>
+    <Teacher>Laszlo</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="7">
+    <Name>IT English</Name>
+    <Teacher>Garegor</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="8">
+    <Name>German Language</Name>
+    <Teacher>Garegor</Teacher>
+    <Duration>30</Duration>
+</Cource>
+</Cources>
