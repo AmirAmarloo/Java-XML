@@ -10,26 +10,14 @@
     <Teacher>Norbert</Teacher>
     <Duration>20</Duration>
 </Cource>
-<Cource id="3">
-    <Name>HTML</Name>
-    <Teacher>Laszlo</Teacher>
-    <Duration>20</Duration>
-</Cource>
-<Cource id="4">
-    <Name>JavaScript</Name>
-    <Teacher>Lazslo</Teacher>
-    <Duration>30</Duration>
-</Cource>
+
+
 <Cource id="5">
     <Name>SQL</Name>
     <Teacher>Istvan</Teacher>
     <Duration>20</Duration>
 </Cource>
-<Cource id="6">
-    <Name>Bootstrap</Name>
-    <Teacher>Laszlo</Teacher>
-    <Duration>30</Duration>
-</Cource>
+
 <Cource id="7">
     <Name>IT English</Name>
     <Teacher>Garegor</Teacher>
@@ -39,5 +27,103 @@
     <Name>German Language</Name>
     <Teacher>Garegor</Teacher>
     <Duration>30</Duration>
+</Cource>
+<Cource id="9">
+    <Name>IT English</Name>
+    <Teacher>Garegor ---</Teacher>
+    <Duration>20</Duration>
+</Cource>
+
+<Cource id="10">
+    <Name>Bootstrap</Name>
+    <Teacher>Laszlo---</Teacher>
+    <Duration>30</Duration>
+</Cource>
+
+<Cource id="11">
+    <Name>IT English</Name>
+    <Teacher>Garegor----</Teacher>
+    <Duration>20</Duration>
+</Cource>
+
+<Cource id="12">
+    <Name>10</Name>
+    <Teacher>test</Teacher>
+    <Duration>12</Duration>
+</Cource>
+<Cource id="13">
+    <Name>Bootstrap</Name>
+    <Teacher>Laszlo---</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="14">
+    <Name>German Language</Name>
+    <Teacher>Garegor 1234</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="15">
+    <Name>HTML</Name>
+    <Teacher>Laszlo 1234</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="16">
+    <Name>JavaScript</Name>
+    <Teacher>Lazslo12345</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="17">
+    <Name>JavaScript</Name>
+    <Teacher>Lazsloqqqqq</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="18">
+    <Name>SQL</Name>
+    <Teacher>Istvanwwww</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="19">
+    <Name>JavaScript</Name>
+    <Teacher>Lazslo</Teacher>
+    <Duration>301</Duration>
+</Cource>
+<Cource id="20">
+    <Name>JavaScript</Name>
+    <Teacher>Lazslo</Teacher>
+    <Duration>3001</Duration>
+</Cource>
+<Cource id="21">
+    <Name>JavaScript</Name>
+    <Teacher>Lazslo 301</Teacher>
+    <Duration>301</Duration>
+</Cource>
+<Cource id="22">
+    <Name>SQL</Name>
+    <Teacher>Istvan 20</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="24">
+    <Name>Bootstrap</Name>
+    <Teacher>Laszlo 6666</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="6">
+    <Name>Bootstrap</Name>
+    <Teacher>Laszlo 66</Teacher>
+    <Duration>30</Duration>
+</Cource>
+<Cource id="23">
+    <Name>Java Application</Name>
+    <Teacher>Norbert  23</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="3">
+    <Name>HTML</Name>
+    <Teacher>Laszlo 2020</Teacher>
+    <Duration>20</Duration>
+</Cource>
+<Cource id="4">
+    <Name>Python</Name>
+    <Teacher>Saeed</Teacher>
+    <Duration>100</Duration>
 </Cource>
 </Cources>
