@@ -48,7 +48,7 @@ public class StudentCourse {
 //            System.out.println(this.Course_id.get(i));
 //        }
         try{
-            
+            DeleteElement(this.Student_id);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
             File f = new File("D:\\Backend\\13\\AppProject\\src\\xml\\StudentCourse.xml");
@@ -99,7 +99,7 @@ public class StudentCourse {
                 Node n = list.item(i);
                 Element e = (Element) n;
                 if (e.getAttribute("id").equals(id)){
-                      Cource c = new Cource();
+                    Cource c = new Cource();
                     int j =0;
                     while (!(e.getElementsByTagName("Course_id" + Integer.toString(j+1)).item(0)==null)) {
                         c = Cource.getCourse(e.getElementsByTagName("Course_id" + Integer.toString(j+1)).item(0).getTextContent());
@@ -114,6 +114,62 @@ public class StudentCourse {
         catch(Exception ex){
             System.out.println(ex.getMessage());
             return objects;
+        }
+    }
+    
+
+    public static boolean validStudentCourse(String StudendtId, String CourseID){
+        boolean srch = false;
+        try{
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse("D:\\Backend\\13\\AppProject\\src\\xml\\StudentCourse.xml");
+            doc.normalize();
+            NodeList list = doc.getElementsByTagName("Student");
+            for(int i=0; i<list.getLength(); i++){
+                Node n = list.item(i);
+                Element e = (Element) n;
+                if (e.getAttribute("id").equals(StudendtId)){
+                    int j =0;
+                    while (!(e.getElementsByTagName("Course_id" + Integer.toString(j+1)).item(0)==null)) {
+                        srch = (e.getElementsByTagName("Course_id" + Integer.toString(j+1)).item(0).getTextContent().equals(CourseID));
+                        if (srch){
+                            break;
+                        }
+                        j++;
+                    }
+                }
+            }
+            return srch;
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+            return srch;
+        }
+    }
+    
+    public static void DeleteElement(String StudentId){
+        try{
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            File f = new File("D:\\Backend\\13\\AppProject\\src\\xml\\StudentCourse.xml");
+            Document doc = db.parse(f);
+            doc.normalize();
+            NodeList nodes = doc.getElementsByTagName("Student");
+            for(int i=0; i < nodes.getLength(); i++){
+                Element person  = (Element)nodes.item(i);
+                if (person.getAttribute("id").equals(StudentId)){
+                    person.getParentNode().removeChild(person);
+                }
+            }
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer t = tf.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(f);
+            t.transform(source, result);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
         }
     }
     
