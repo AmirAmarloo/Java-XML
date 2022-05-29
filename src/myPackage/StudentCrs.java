@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static myPackage.StudentCourse.validStudentCourse;
 
 /**
  *
@@ -18,6 +19,9 @@ public class StudentCrs extends javax.swing.JFrame {
     /**
      * Creates new form StudentCrs
      */
+    
+    Student cst = new Student();
+            
     public StudentCrs() {
         initComponents();
     }
@@ -241,7 +245,7 @@ public class StudentCrs extends javax.swing.JFrame {
 
     private void tfStudentIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfStudentIDFocusLost
         String StudentID = tfStudentID.getText();
-        Student cst = Student.getStudentbyId(StudentID);
+        cst = Student.getStudentbyId(StudentID);
         if (cst.getName()==null){
             JOptionPane.showMessageDialog(null, "Invalid Student ID");
             tfStudentID.requestFocus();
@@ -266,6 +270,7 @@ public class StudentCrs extends javax.swing.JFrame {
 
     
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String StudentId = tfStudentID.getText();
         String CourseId = tfCourse.getText();
         Cource lc = Cource.getCourse(CourseId);
         if (lc.getName()==null){
@@ -274,10 +279,23 @@ public class StudentCrs extends javax.swing.JFrame {
         }
         else
         {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.addRow(new Object[]{CourseId, lc.getName(), lc.getTeacher(), lc.getDuration()});
-            tfCourse.setText("");
-            tfCourse.requestFocus();
+            boolean searcTable = false;
+            int row = jTable1.getRowCount();
+            int column = jTable1.getColumnCount();
+            for(int i = 0; i < row; i++) {
+                if (jTable1.getValueAt(i, 0).toString().equals(CourseId)){
+                    searcTable = true;
+                    break;
+                }
+            }
+            if (!searcTable){
+                if (!validStudentCourse(StudentId, CourseId)){
+                    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                    model.addRow(new Object[]{CourseId, lc.getName(), lc.getTeacher(), lc.getDuration()});
+                    tfCourse.setText("");
+                    tfCourse.requestFocus();
+                }
+            }
         }
 
     }//GEN-LAST:event_jButton4ActionPerformed
