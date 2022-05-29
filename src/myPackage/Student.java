@@ -66,6 +66,9 @@ public class Student {
     
     public void save(int id){
         try{
+            String MyId = this.id;
+            DeleteElement(MyId);
+
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
             File f = new File("D:\\Backend\\13\\AppProject\\src\\xml\\Student.xml");
@@ -189,5 +192,33 @@ public class Student {
         }
         return ts;
     }
+    
+    public static void DeleteElement(String StudentId){
+        try{
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            File f = new File("D:\\Backend\\13\\AppProject\\src\\xml\\Student.xml");
+            Document doc = db.parse(f);
+            doc.normalize();
+            NodeList nodes = doc.getElementsByTagName("Student");
+            for(int i=0; i < nodes.getLength(); i++){
+                Element person  = (Element)nodes.item(i);
+                if (person.getAttribute("id").equals(StudentId)){
+                    System.out.println("ID: " + person.getAttribute("id"));
+                    System.out.println("InputID: " + StudentId);
+                    person.getParentNode().removeChild(person);
+                }
+            }
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer t = tf.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(f);
+            t.transform(source, result);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
     
 }
