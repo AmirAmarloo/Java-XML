@@ -61,9 +61,7 @@ public class Cource {
                 }
                 else
                 {
-                    Node n = list.item(list.getLength()-1);
-                    Element e = (Element)n;
-                    return Integer.parseInt(e.getAttribute("id"))+1;
+                    return list.getLength()+1;
                 }
             }
         }
@@ -129,6 +127,8 @@ public class Cource {
     
     public void save(int id){
         try{
+            String MyId = String.valueOf(this.Id);
+            DeleteElement(MyId);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
             File f = new File("D:\\Backend\\13\\AppProject\\src\\xml\\Course.xml");
@@ -183,7 +183,11 @@ public class Cource {
             NodeList list = doc.getElementsByTagName("Cource");
             for(int i=0; i<list.getLength(); i++){
                 Node n = list.item(i);
+                
                 Element e = (Element) n;
+//                System.out.println("Name: " +e.getElementsByTagName("Name").item(0).getTextContent());
+//                System.out.println("Teacher: " +e.getElementsByTagName("Teacher").item(0).getTextContent());
+//                System.out.println("Duration: " +Integer.parseInt(e.getElementsByTagName("Duration").item(0).getTextContent()));
                 Cource c = new Cource(e.getElementsByTagName("Name").item(0).getTextContent(), 
                                       e.getElementsByTagName("Teacher").item(0).getTextContent(),
                                       Integer.parseInt(e.getElementsByTagName("Duration").item(0).getTextContent()));
@@ -253,4 +257,31 @@ public class Cource {
         }
         return tmp;
     }
+
+    public static void DeleteElement(String CourceId){
+        try{
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            File f = new File("D:\\Backend\\13\\AppProject\\src\\xml\\Course.xml");
+            Document doc = db.parse(f);
+            doc.normalize();
+            NodeList nodes = doc.getElementsByTagName("Cource");
+            for(int i=0; i < nodes.getLength(); i++){
+                Element person  = (Element)nodes.item(i);
+                if (person.getAttribute("id").equals(CourceId)){
+                    person.getParentNode().removeChild(person);
+                }
+            }
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer t = tf.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(f);
+            t.transform(source, result);
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    
 }
